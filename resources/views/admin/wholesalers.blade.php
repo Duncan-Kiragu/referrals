@@ -9,25 +9,36 @@
 
                 <div class="panel-body">
 
-                    <p><a href="{{route('admin.wholesaler.add')}}">Add Wholesaler</a></p>
+                    <p><a href="{{route('admin.wholesaler.add')}}">Add Wholesaler Role to a User</a></p>
                     <table class = "referrals">
-                      <tr>
-                        <th>
-                          Wholesaler Email
-                        </th>
-                      </tr>
-                      @foreach($wholesalers as $wholesaler)
+                      <thead>
                         <tr>
-                          <td>
-                            {{$wholesaler->email}}
-                          </td>
-                          <td>
-                            <a href="{{route('admin.wholesalers_single', ['user_id' => $wholesaler->id])}}">VIEW</a>
-                            <a href="{{route('admin.wholesaler.remove', ['user_id' => $wholesaler->id])}}">Remove Wholesaler Role</a>
-                          </td>
+                          <th>
+                            Wholesaler Email
+                          </th>
+                          <th>
+                            Actions
+                          </th>
+                          <th>
+                            Remove
+                          </th>
                         </tr>
-                      @endforeach
-
+                      </thead>
+                      <tbody>
+                        @foreach($wholesalers as $wholesaler)
+                          <tr>
+                            <td>
+                              {{$wholesaler->email}}
+                            </td>
+                            <td>
+                              <a href="{{route('admin.wholesalers_single', ['user_id' => $wholesaler->id])}}">VIEW</a>
+                            </td>
+                            <td>
+                              <a href="{{route('admin.wholesaler.remove', ['user_id' => $wholesaler->id])}}">Remove Wholesaler Role</a>
+                            </td>
+                          </tr>
+                        @endforeach
+                      </tbody>
                     </table>
                 </div>
             </div>

@@ -11,23 +11,25 @@
                 <div class="panel-body">
 
                   @role('referrer')
-                    <p>Your Referral Link: <a href = "http://www.theplantbasedlife.com/plantbasedlifedev?ref={{$user->id}}">http://www.theplantbasedlife.com/plantbasedlifedev?ref={{$user->id}}</a></p>
+                    <p>Your Referral Link: <a href = "http://sustainablediet.com/?ref={{$user->id}}">http://sustainablediet.com/?ref={{$user->id}}</a></p>
                     <p>
                       <a href="{{route('referrals.download', ['user_id' => $user->id])}}">Download CSV</a>
                     </p>
                     <table class="referral-table">
-                      <tr>
-                        <th>
-                          Date/Time
-                        </th>
-                        <th>
-                          Customer Email
-                        </th>
-                        <th>
-                          Amount
-                        </th>
-                      </tr>
-
+                      <thead>
+                        <tr>
+                          <th>
+                            Date/Time
+                          </th>
+                          <th>
+                            Customer Email
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
                       @foreach($referrals as $referral)
 
                         <tr>
@@ -43,6 +45,7 @@
                         </tr>
 
                       @endforeach
+                      </tbody>
                     </table>
                     <br>
                     <br>
@@ -60,19 +63,21 @@
                   </h3>
 
                   <table class="referral-table">
-                    <tr>
-                      <th>
-                        Affiliate Name
-                      </th>
-                      <th>
-                        Affiliate Email
-                      </th>
+                    <thead>
+                      <tr>
+                        <th>
+                          Affiliate Name
+                        </th>
+                        <th>
+                          Affiliate Email
+                        </th>
 
-                      <th>
-                        Actions
-                      </th>
-                    </tr>
-
+                        <th>
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
                     @foreach($referrers as $referrer)
 
                       <tr>
@@ -89,6 +94,7 @@
                       </tr>
 
                     @endforeach
+                    </tbody>
                   </table>
                   @endrole
 

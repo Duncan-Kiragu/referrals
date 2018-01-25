@@ -13,22 +13,29 @@
                     </p>
 
                     <table class = "referrals">
+                      <thead>
+
                       <tr>
                         <th>
                           Affiliate Email
                         </th>
+                        <th>
+                          Actions
+                        </th>
                       </tr>
-                      @foreach($referrers as $referrer)
-                        <tr>
-                          <td>
-                            {{$referrer->email}}
-                          </td>
-                          <td>
-                            <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}">VIEW</a>
-                          </td>
-                        </tr>
-                      @endforeach
-
+                      </thead>
+                      <tbody>
+                        @foreach($referrers as $referrer)
+                          <tr>
+                            <td>
+                              {{$referrer->email}}
+                            </td>
+                            <td>
+                              <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}">VIEW</a>
+                            </td>
+                          </tr>
+                        @endforeach
+                      </tbody>
                     </table>
                 </div>
             </div>

@@ -20,23 +20,24 @@
                     <h3>Recent Referrals</h3>
 
                     <table class="referral-table">
-                      <tr>
-                        <th>
-                          Date/Time
-                        </th>
-                        <th>
-                          Customer Email
-                        </th>
-                        <th>
-                          Amount
-                        </th>
-                        <th>
-                          User
-                        </th>
-                      </tr>
-
+                      <thead>
+                        <tr>
+                          <th>
+                            Date/Time
+                          </th>
+                          <th>
+                            Customer Email
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>
+                            User
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
                       @foreach($referrals as $referral)
-
                         <tr>
                           <td>
                             {{$referral->created_at}}
@@ -51,8 +52,8 @@
                             <a href="{{route('admin.referrers_single', ['user_id' => $referral->user_id])}}">{{$referral->user->name}}</a>
                           </td>
                         </tr>
-
                       @endforeach
+                      </tbody>
                     </table>
 
                 </div>
