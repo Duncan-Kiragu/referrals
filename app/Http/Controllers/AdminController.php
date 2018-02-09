@@ -140,7 +140,7 @@ class AdminController extends Controller{
 
   public function getAddWholesaler()
   {
-    $wholesalers = User::whereHas('roles', function($q){$q->whereIn('name', ['wholesaler']);})->get();
+    $wholesalers = User::whereDoesntHave('roles', function($q){$q->whereIn('name', ['wholesaler']);})->get();
     return view('admin.add_wholesaler', ['wholesalers' => $wholesalers]);//, ['posts' => $posts]);
   }
 
