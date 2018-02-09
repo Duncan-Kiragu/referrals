@@ -83,6 +83,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
   ]);
 
+  Route::get('/referrers/{user_id}/delete', [
+
+    'uses' => 'AdminController@deleteReferrer',
+    'as' => 'admin.referrers_delete'
+
+  ]);
+
   Route::get('/wholesalers/{user_id}', [
 
     'uses' => 'AdminController@getSingleWholesaler',
@@ -94,6 +101,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
     'uses' => 'AdminController@getWholesalerRemove',
     'as' => 'admin.wholesaler.remove'
+
+  ]);
+
+  Route::get('/wholesalers/{user_id}/removeaffiliate', [
+
+    'uses' => 'AdminController@getWholesalerRemoveAffiliate',
+    'as' => 'admin.wholesaler.removeaffiliate'
 
   ]);
 

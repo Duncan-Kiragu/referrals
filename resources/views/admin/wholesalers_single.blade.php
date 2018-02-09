@@ -80,7 +80,8 @@
                           {{$referrer->email}}
                         </td>
                         <td>
-                          <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}">VIEW</a>
+                          <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}" style = "margin-right:20px;">VIEW</a>
+                          <a href="{{route('admin.wholesaler.removeaffiliate', ['user_id' => $referrer->id])}}" onclick="return confirm('Are you sure you want to remove this affiliate?');">REMOVE AFFILIATE</a>
                         </td>
                       </tr>
 

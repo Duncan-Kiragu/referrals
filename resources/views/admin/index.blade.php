@@ -11,10 +11,10 @@
 
 
                     <ul>
-                      <li><a href = "{{route('admin.wholesalers')}}">All Wholesalers</a></li>
+                      <li><a href = "{{route('admin.wholesalers')}}">All Partners</a></li>
                       <li><a href = "{{route('admin.referrers')}}">All Affiliates</a></li>
                       <li><a href = "{{route('admin.referral.add')}}">Add a Referral</a></li>
-                      <li><a href = "{{route('admin.wholesaler.referrer.add')}}">Link Affiliate to Wholesaler</a></li>
+                      <li><a href = "{{route('admin.wholesaler.referrer.add')}}">Link Affiliate to Partner</a></li>
                     </ul>
 
                     <h3>Recent Referrals</h3>

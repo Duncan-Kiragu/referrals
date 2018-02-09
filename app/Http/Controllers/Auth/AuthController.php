@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Mail;
+use App\Role;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -65,6 +66,16 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 
+        /**/
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+
+        $referrerRole = Role::where('name', '=', 'referrer')->first();
+        $user->roles()->attach($referrerRole->id);
+
         Mail::send('emails.welcome', $data, function($message) use ($data)
         {
             $message->from('support@sustainablediet.com', "Sustainable Diet Referrals");
@@ -72,11 +83,6 @@ class AuthController extends Controller
             $message->to($data['email']);
         });
 
-
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        return $user;
     }
 }

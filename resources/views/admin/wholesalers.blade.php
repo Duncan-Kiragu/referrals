@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">All Wholesalers</div>
+                <div class="panel-heading">All Partners</div>
 
                 <div class="panel-body">
 
-                    <p><a href="{{route('admin.wholesaler.add')}}">Add Wholesaler Role to a User</a></p>
+                    <p><a href="{{route('admin.wholesaler.add')}}">Add Partner Role to a User</a></p>
                     <table class = "referrals">
                       <thead>
                         <tr>
                           <th>
-                            Wholesaler Email
+                            Partner Email
                           </th>
                           <th>
                             Actions
@@ -34,7 +34,7 @@
                               <a href="{{route('admin.wholesalers_single', ['user_id' => $wholesaler->id])}}">VIEW</a>
                             </td>
                             <td>
-                              <a href="{{route('admin.wholesaler.remove', ['user_id' => $wholesaler->id])}}">Remove Wholesaler Role</a>
+                              <a href="{{route('admin.wholesaler.remove', ['user_id' => $wholesaler->id])}}">Remove Partner Role</a>
                             </td>
                           </tr>
                         @endforeach

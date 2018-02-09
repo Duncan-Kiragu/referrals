@@ -31,7 +31,8 @@
                               {{$referrer->email}}
                             </td>
                             <td>
-                              <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}">VIEW</a>
+                              <a href="{{route('admin.referrers_single', ['user_id' => $referrer->id])}}">VIEW</a>&nbsp;&nbsp;&nbsp; 
+                              <a href="{{route('admin.referrers_delete', ['user_id' => $referrer->id])}}" onclick="return confirm('Are you sure you want to delete this user?');">DELETE</a>
                             </td>
                           </tr>
                         @endforeach

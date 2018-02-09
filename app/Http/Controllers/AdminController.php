@@ -42,6 +42,33 @@ class AdminController extends Controller{
     return view('admin.referrers_single', ['user' => $user, 'referrals' => $referrals]);//, ['posts' => $posts]);
   }
 
+  public function deleteReferrer($user_id)
+  {
+    //$user_id = $request['user_id'];
+
+    $user = User::where('id', '=', $user_id)->first();
+
+    $user->delete();
+
+
+
+    $referrals = Referral::where('user_id', '=', $user->id)->get();
+
+    //delete associated Referrals
+
+    if(!$user){
+
+      return redirect()->back()->with(['success' => 'User has been Deactivated']);
+
+    }
+
+    return redirect()->back()->with(['fail' => 'User not Deactivated']);
+
+
+
+
+  }
+
   public function getSingleWholesaler($user_id)
   {
     //$user_id = $request['user_id'];
@@ -68,6 +95,22 @@ class AdminController extends Controller{
     $referrerRole = Role::where('name', '=', 'referrer')->first();
     $user->roles()->detach();
     $user->roles()->attach($referrerRole->id);
+
+
+    return redirect()->back()->with(['success' => 'Wholesaler Role Successfully Removed from User']);
+  }
+
+  public function getWholesalerRemoveAffiliate($user_id){
+
+    $user = User::where('id', '=', $user_id)->first();
+    if(!$user){
+
+      return redirect()->back()->with(['fail' => 'Could not find User']);
+
+    }
+
+    $user->wholesaler_id = NULL;
+    $user->save();
 
 
     return redirect()->back()->with(['success' => 'Wholesaler Role Successfully Removed from User']);
