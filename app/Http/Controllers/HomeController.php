@@ -48,6 +48,54 @@ class HomeController extends Controller
         return view('home',['user' => $user, 'referrals' => $referrals, 'referrers' =>  $referrers]);
     }
 
+    public function getUserUpdate($user_id){
+
+      $accessingUser = Auth::User();
+
+      $user = User::where('id', '=', $user_id)->first();
+
+      if($accessingUser->id === $user->id){
+
+        return view('auth.user_update', ['user' => $user]);
+
+      }
+
+      //$successMsg = "Your User Information has been updated.";
+
+      return redirect()->route('home')->with(['error' => "You are unauthorized to edit this user" ]);
+    }
+
+    public function postUserUpdateSave(Request $request){
+
+      $this->validate($request, [
+
+        'id' => 'required|integer',
+        'username' => 'required',
+        'useremail' => 'required|email'
+
+      ]);
+
+      $user = User::where('id', '=', $request['id'])->first();
+
+      $accessingUser = Auth::User();
+
+      if($accessingUser->id === $user->id){
+
+        $user->name = $request['username'];
+        $user->email = $request['useremail'];
+        $user->update();
+
+        $successMsg = "Your User Information has been updated.";
+
+        return redirect()->route('home')->with(['success' => $successMsg ]);
+
+      }
+
+      return redirect()->route('home')->with(['error' => "You are unauthorized to edit this user" ]);
+
+    }
+
+
     public function getReferrerView($user_id){
 
       $accessingUser = Auth::User();

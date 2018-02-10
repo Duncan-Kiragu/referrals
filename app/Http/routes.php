@@ -53,6 +53,20 @@ Route::get('/{user_id}/download', [
 
 ]);
 
+Route::get('/user/update/{user_id}', [
+
+    'uses' => 'HomeController@getUserUpdate',
+    'as' => 'user.update'
+
+]);
+
+Route::post('/user/update/save', [
+
+    'uses' => 'HomeController@postUserUpdateSave',
+    'as' => 'user.update.save'
+
+]);
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
   Route::get('/', [

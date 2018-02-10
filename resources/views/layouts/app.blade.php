@@ -76,6 +76,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{route('user.update', ['user_id' => Auth::user()->id])}}"><i class="glyphicon glyphicon-user"></i>Update User Information</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
