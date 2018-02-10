@@ -60,8 +60,6 @@ class HomeController extends Controller
 
       }
 
-      //$successMsg = "Your User Information has been updated.";
-
       return redirect()->route('home')->with(['error' => "You are unauthorized to edit this user" ]);
     }
 

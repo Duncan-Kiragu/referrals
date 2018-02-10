@@ -8,10 +8,18 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                  <p>Welcome to your referral tracking page. <a href="http://referrals.sustainablediet.com/home">Click here</a> to see the list of participants you have referred to Sustainable Diet Inc., along with the amount of your commission.</p>
 
-                  <p>For questions on how to use the site, please email <a href = "mailto:support@sustainablediet.com">support@sustainablediet.com</a></p>
-                </div>
+                  @if (Auth::guest())
+                      <p>Please <a href="{{ url('/login') }}">Login</a> or <a href="{{ url('/register') }}">Register</a> to begin.</p>
+
+                  @else
+                    <p>Welcome to your referral tracking page. <a href="http://referrals.sustainablediet.com/home">Click here</a> to see the list of participants you have referred to Sustainable Diet Inc., along with the amount of your commission.</p>
+
+                    <p>For questions on how to use the site, please email <a href = "mailto:support@sustainablediet.com">support@sustainablediet.com</a></p>
+                  
+                  @endif
+
+                  </div>
             </div>
         </div>
     </div>
