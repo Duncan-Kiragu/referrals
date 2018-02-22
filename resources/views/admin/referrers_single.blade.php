@@ -24,6 +24,9 @@
                       <th>
                         Amount
                       </th>
+                      <th>
+                        Referral Type
+                      </th>
                       @if($user->wholesaler_id != NULL)
                         <th>
                           Commission
@@ -45,6 +48,9 @@
                         </td>
                         <td>
                           ${{$referral->referral_amount}}
+                        </td>
+                        <td>
+                          {{$referral->referral_type}}
                         </td>
                         @if($user->wholesaler_id != NULL)
                           <th>

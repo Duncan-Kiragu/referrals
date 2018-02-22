@@ -32,6 +32,9 @@
                             Amount
                           </th>
                           <th>
+                            Referral Type
+                          </th>
+                          <th>
                             User
                           </th>
                         </tr>
@@ -47,6 +50,9 @@
                           </td>
                           <td>
                             ${{$referral->referral_amount}}
+                          </td>
+                          <td>
+                            {{$referral->referral_type}}
                           </td>
                           <td>
                             <a href="{{route('admin.referrers_single', ['user_id' => $referral->user_id])}}">{{$referral->user->name}}</a>

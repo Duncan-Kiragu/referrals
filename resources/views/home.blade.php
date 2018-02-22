@@ -24,8 +24,11 @@
                           <th>
                             Customer Email
                           </th>
-                          <th>
+                          <!--<th>
                             Amount
+                          </th>-->
+                          <th>
+                            Referral Type
                           </th>
                         </tr>
                       </thead>
@@ -39,8 +42,11 @@
                           <td>
                             {{$referral->referral_email}}
                           </td>
-                          <td>
+                          <!--<td>
                             ${{$referral->referral_amount}}
+                          </td>-->
+                          <td>
+                            {{$referral->referral_type}}
                           </td>
                         </tr>
 

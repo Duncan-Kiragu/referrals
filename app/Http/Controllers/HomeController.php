@@ -155,10 +155,10 @@ class HomeController extends Controller
       $table = Referral::where('user_id', '=', $user->id)->get();
       $filename = "referrals-".$user->email.".csv";
       $handle = fopen($filename, 'w+');
-      fputcsv($handle, array('Referral Email','Amount', 'Created At'));//, 'User', 'name', 'created at'));
+      fputcsv($handle, array('Referral Email','Referral Type', 'Created At'));//, 'User', 'name', 'created at'));
 
       foreach($table as $row) {
-          fputcsv($handle, array($row['referral_email'],$row['referral_amount'],$row['created_at']));//, $row['screen_name'], $row['name'], $row['created_at']));
+          fputcsv($handle, array($row['referral_email'],$row['referral_type'],$row['created_at']));//, $row['screen_name'], $row['name'], $row['created_at']));
       }
 
       fclose($handle);

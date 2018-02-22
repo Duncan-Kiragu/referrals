@@ -25,6 +25,9 @@
                         Amount
                       </th>
                       <th>
+                        Referral Type
+                      </th>
+                      <th>
                         Actions
                       </th>
                     </tr>
@@ -40,6 +43,9 @@
                         </td>
                         <td>
                           ${{$referral->referral_amount}}
+                        </td>
+                        <td>
+                          ${{$referral->referral_type}}
                         </td>
                         <td>
                           <a href = "{{route('admin.referral.delete', ['referral_id' => $referral->id ])}}">Delete</a>

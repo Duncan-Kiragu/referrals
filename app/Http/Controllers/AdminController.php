@@ -208,19 +208,19 @@ class AdminController extends Controller{
 
     $this->validate($request, [
 
-      'referrer' => 'required'
+      'wholesaler' => 'required'
 
     ]);
 
 
-    $user = User::where('id', '=', $request['referrer'])->first();
+    $user = User::where('id', '=', $request['wholesaler'])->first();
 
     $wholesaleRole = Role::where('name', '=', 'wholesaler')->first();
 
     $user->roles()->attach($wholesaleRole->id);
 
 
-    return redirect()->route('admin.wholesalers')->with(['success' => 'Wholesaler Successfuly Created']);
+    return redirect()->route('admin.wholesalers')->with(['success' => 'Partner Successfuly Created']);
 
   }
 
@@ -234,7 +234,7 @@ class AdminController extends Controller{
     $handle = fopen($filename, 'w+');
 
 
-    fputcsv($handle, array('Referral Email','Amount', 'Commission', 'Created At'));//, 'User', 'name', 'created at'));
+    fputcsv($handle, array('Referral Email','Amount', 'Referral Type' , 'Commission', 'Created At'));//, 'User', 'name', 'created at'));
 
     foreach($table as $row) {
         if($user->wholesaler_id != NULL){
@@ -246,7 +246,7 @@ class AdminController extends Controller{
 
 
 
-        fputcsv($handle, array($row['referral_email'],$row['referral_amount'],$commission,$row['created_at']));//, $row['screen_name'], $row['name'], $row['created_at']));
+        fputcsv($handle, array($row['referral_email'],$row['referral_amount'],$row['referral_type'],$commission,$row['created_at']));//, $row['screen_name'], $row['name'], $row['created_at']));
     }
 
     fclose($handle);
