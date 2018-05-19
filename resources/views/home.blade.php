@@ -55,9 +55,9 @@
                     </table>
                     <br>
                     <br>
-                    <p>
+                    <!--<p>
                       Referral Totals to Date: {{DB::table('referrals')->where('user_id', '=', $user->id)->count('referral_amount')}} Referrals - ${{DB::table('referrals')->where('user_id', '=', $user->id)->sum('referral_amount')}}
-                    </p>
+                    </p>-->
 
 
                   @endrole
