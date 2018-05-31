@@ -11,6 +11,7 @@
 
 
                 <div class="panel-body">
+                  <p>Referral Link: <a href = "http://sustainablediet.com/?ref={{$user->id}}">http://sustainablediet.com/?ref={{$user->id}}</a></p>
 
                   <p><a href="{{route('admin.referrals.download', ['user_id' => $user->id])}}">Download CSV</a></p>
                   <table class="referral-table">
